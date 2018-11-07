@@ -1,0 +1,41 @@
+<!ELEMENT result (user|error)>
+<!ELEMENT user (name, description,creation,location,views,upvotes,downvotes, reputation,badges, posts, comments)>
+<!ELEMENT error (#PCDATA)>
+<!-- name element is DisplayName’s user or Name’s badge -->
+<!ELEMENT name (#PCDATA)>
+<!-- description element is AboutMe’s user -->
+<!ELEMENT description (#PCDATA)>
+<!-- creation element is CreationDate’s user or Date’s badge -->
+<!ELEMENT creation (#PCDATA)>
+<!-- location element is Location’s user -->
+<!ELEMENT location (#PCDATA)>
+<!-- upvotes element is UpVotes’s user -->
+<!ELEMENT upvotes (#PCDATA)>
+<!-- downvotes element is DownVotes’s user -->
+<!ELEMENT downvotes (#PCDATA)>
+<!-- reputation element is Reputation’s user -->
+<!ELEMENT reputation (#PCDATA)>
+<!-- views element is VIew’s user -->
+<!ELEMENT views (#PCDATA)>
+<!ATTLIST user id CDATA #REQUIRED>
+<!ELEMENT badges (badge*)>
+<!ELEMENT badge (name,created)>
+<!ATTLIST badge id CDATA #IMPLIED class CDATA #IMPLIED tag_based (True|False) #IMPLIED>
+<!ELEMENT posts (post*)>
+<!ELEMENT post (text,created,view_count,comment_count,answer_count,favorite_count,score)>
+<!-- text element is Body’s Post or Text’s comment -->
+<!ELEMENT text (#PCDATA)>
+<!-- created element is CreationDate’s comment/ṕost or Date’s badge -->
+<!ELEMENT created (#PCDATA)>
+<!-- view_count element is ViewCOunt’s post -->
+<!ELEMENT view_count (#PCDATA)>
+<!-- comment_count element is CommentCount’s post -->
+<!ELEMENT comment_count (#PCDATA)>
+<!-- answer_count element is AnswerCount’s post -->
+<!ELEMENT answer_count (#PCDATA)>
+<!-- favorite_count element is FavoriterCount’s post -->
+<!ELEMENT favorite_count (#PCDATA)>
+<!-- score element is Score’s post/comment -->
+<!ELEMENT score (#PCDATA)>
+<!ELEMENT comments (comment*)>
+<!ELEMENT comment (text,created,score)>
