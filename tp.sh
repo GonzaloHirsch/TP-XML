@@ -15,6 +15,12 @@ echo "Input number of comments:"
 
 read NComments
 
+while [ $NComments -lt 0 ]; do
+	echo "Please input a valid number of comments (a number greater than or equal 0):"
+
+	read NComments
+done
+
 function verifyUserID() {
 	#Upon inspecting the users.xml, the ID for the community is -1, so it can be chosen
 	if [ $userID -lt -1 ]; then
