@@ -3,16 +3,17 @@ declare variable $n external;
 
 declare function local:ReturnUser($user) as node()
 {
-  <user>
-  { $user/@Id }
+  
+  <user id="{data($user/@Id)}" >
   <name> {data($user/@DisplayName) }  </name>
-  <description> { data($user/@AboutMe) } </description>
+  <description> { replace(data($user/@AboutMe), '(&lt;p&gt;)|(&lt;/p&gt;)' , "") } </description>
   <creation>{ data($user/@CreationDate) }</creation>
   <location>{ data($user/@Location) }</location>
+  <views>{ data($user/@Views) }</views>
   <upvotes>{ data($user/@UpVotes) }</upvotes>
   <downvotes>{ data($user/@DownVotes) }</downvotes>
   <reputation>{ data($user/@Reputation) }</reputation>
-  <views>{ data($user/@Views) }</views>
+  
   
   
   <badges> 
@@ -46,13 +47,11 @@ declare function local:ReturnUser($user) as node()
   
   </user>
   
+  
 };
 
 declare function local:badge($badge) as node() {
-  <badge>
-    {  $badge/@Id  }
-    {  $badge/@Class }
-    {  $badge/@TagBased  }
+  <badge id="{ data($badge/@Id) }" class="{ data($badge/@Class) }" tag_based="{ data($badge/@TagBased) }">
     <name> { data($badge/@Name) } </name>
     <created> { data($badge/@Date ) } </created>
   </badge>
@@ -60,7 +59,7 @@ declare function local:badge($badge) as node() {
 
 declare function local:post($post) as node() {
   <post>
-    <text> { data($post/@Body) } </text>
+    <text> {   replace(data($post/@Body), '(&lt;p&gt;)|(&lt;/p&gt;)' , "") } </text>
     <created>{data($post/@CreationDate) } </created>
     <view_count>{data($post/@ViewCount) } </view_count>
     <comment_count>{data($post/@CommentCount) } </comment_count>
@@ -82,8 +81,12 @@ declare function local:error() as node() {
   <error>User {$userID} is inexistent.</error>
 };
 
-if (some $user in doc("Users.xml")//row satisfies ($user/@Id = $userID))
-then for $user in doc("Users.xml")//row
-where  ($user/@Id = $userID)
-return local:ReturnUser($user)
-else local:error()
+<result>{
+  if (some $user in doc("Users.xml")//row satisfies ($user/@Id = $userID))
+  then for $user in doc("Users.xml")//row
+  where  ($user/@Id = $userID)
+  return local:ReturnUser($user)
+  else local:error()
+}
+
+</result>
