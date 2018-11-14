@@ -78,12 +78,12 @@ declare function local:comment($comment) as node() {
   </comment>
 };
 
-for $user in doc("Users.xml")//row
+declare function local:error() as node() {
+  <error>ID not found</error>
+};
+
+if (some $user in doc("Users.xml")//row satisfies ($user/@Id = $userID))
+then for $user in doc("Users.xml")//row
 where  ($user/@Id = $userID)
 return local:ReturnUser($user)
-
-
-
-
-
- 
+else local:error()
