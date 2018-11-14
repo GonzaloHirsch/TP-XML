@@ -18,8 +18,8 @@
                 <img src="Resources/404.svg" />
                 <div>
                     <h2>ID Not Found</h2>
-                    <p>The ID <xsl:value-of select="." /> was not found.</p>
-                    <p>Please verify it's a valid id.</p>
+                    <p><xsl:value-of select="." /></p>
+                    <p>Please verify the inserted ID.</p>
                 </div>
             </div>
         </body>
