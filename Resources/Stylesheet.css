@@ -42,6 +42,11 @@ body {
     color: #a3a3a3;
 }
 
+.person h3 * {
+    margin: 0;
+    padding: 0;
+}
+
 .person table {
     padding: 16px;
     width: 50%;

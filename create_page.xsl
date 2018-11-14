@@ -2,6 +2,22 @@
 
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
     
+    <xsl:template match="/error">
+        <html>
+
+            <head>
+                <link rel="stylesheet" type="text/css" href="./Resources/Stylesheet.css" />
+            </head>
+            
+            <body>
+                <div id="navbar">
+                    <div> </div>
+                    <img src="Resources/stackoverflow_logo.png" />
+                </div>
+            </body>
+        </html>
+    </xsl:template>
+    
     <xsl:template match="/user">
         <html>
 
@@ -32,7 +48,7 @@
     <xsl:template name="person">
         <div class="person">
             <h1><xsl:value-of select="name" /></h1>
-            <h3><xsl:value-of select="description" /></h3>
+            <h3><xsl:value-of select="description" disable-output-escaping="yes"/></h3>
             <table>
                 <tr>
                     <th>Views</th>
@@ -79,10 +95,10 @@
                 </tr>
                 <xsl:for-each select="posts/post">
                     <tr>
-                        <td><xsl:value-of select="text" /></td>
+                        <td><xsl:value-of select="text" disable-output-escaping="yes" /></td>
                         <td><xsl:value-of select="created" /></td>
-                        <td><xsl:value-of select="comment_count" /></td>
                         <td><xsl:value-of select="view_count" /></td>
+                        <td><xsl:value-of select="comment_count" /></td>
                         <td><xsl:value-of select="answer_count" /></td>
                         <td><xsl:value-of select="favourite_count" /></td>
                         <td><xsl:value-of select="score" /></td>
@@ -103,7 +119,7 @@
                 </tr>
                 <xsl:for-each select="comments/comment">
                     <tr>
-                        <td><xsl:value-of select="text" /></td>
+                        <td><xsl:value-of select="text" disable-output-escaping="yes" /></td>
                         <td><xsl:value-of select="created" /></td>
                         <td><xsl:value-of select="score" /></td>
                     </tr>
