@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
-
-    <xsl:template match="/">
+    
+    <xsl:template match="/user">
         <html>
 
         <head>
@@ -16,7 +16,14 @@
                 <img src="Resources/stackoverflow_logo.png" />
             </div>
             
-            <xsl:apply-templates/>
+            <xsl:call-template name="person" />
+            
+            <xsl:call-template name="badges" />
+            
+            <xsl:call-template name="posts" />
+            
+            <xsl:call-template name="comments" />
+            
         </body>
 
         </html>
@@ -34,26 +41,74 @@
                     <th>Reputation</th>
                 </tr>
                 <tr>
-                    <td><xsl:value-of select="user/views" /></td>
-                    <td><xsl:value-of select="user/upvotes" /></td>
-                    <td><xsl:value-of select="user/downvotes" /></td>
-                    <td><xsl:value-of select="user/reputation" /></td>
+                    <td><xsl:value-of select="views" /></td>
+                    <td><xsl:value-of select="upvotes" /></td>
+                    <td><xsl:value-of select="downvotes" /></td>
+                    <td><xsl:value-of select="reputation" /></td>
                 </tr>
             </table>
         </div>
     </xsl:template>
     
-    <xsl:template match="badges">
+    <xsl:template name="badges">
         <div class="badges">
             <h4>Badges</h4>
             <ul class="badge-list">
-                <xsl:for-each select="badge">
+                <xsl:for-each select="badges/badge[not(name=preceding-sibling::badge/name)]">
                     <li>
                         <img name="badge-img" />
                         <p><xsl:value-of select="name" /></p>
                     </li>
                 </xsl:for-each>
             </ul>
+        </div>
+    </xsl:template>
+    
+    <xsl:template name="posts">
+        <div class="text_table">
+            <h4>Posts</h4>
+            <table>
+                <tr>
+                    <th>Text</th>
+                    <th>Created</th>
+                    <th>View Count</th>
+                    <th>Comment Count</th>
+                    <th>Answer Count</th>
+                    <th>Favourite Count</th>
+                    <th>Score</th>
+                </tr>
+                <xsl:for-each select="posts/post">
+                    <tr>
+                        <td><xsl:value-of select="text" /></td>
+                        <td><xsl:value-of select="created" /></td>
+                        <td><xsl:value-of select="comment_count" /></td>
+                        <td><xsl:value-of select="view_count" /></td>
+                        <td><xsl:value-of select="answer_count" /></td>
+                        <td><xsl:value-of select="favourite_count" /></td>
+                        <td><xsl:value-of select="score" /></td>
+                    </tr>
+                </xsl:for-each>
+            </table>
+        </div>
+    </xsl:template>
+    
+    <xsl:template name="comments">
+        <div class="text_table">
+            <h4>Comments</h4>
+            <table>
+                <tr>
+                    <th>Text</th>
+                    <th>Created</th>
+                    <th>Score</th>
+                </tr>
+                <xsl:for-each select="comments/comment">
+                    <tr>
+                        <td><xsl:value-of select="text" /></td>
+                        <td><xsl:value-of select="created" /></td>
+                        <td><xsl:value-of select="score" /></td>
+                    </tr>
+                </xsl:for-each>
+            </table>
         </div>
     </xsl:template>
 
