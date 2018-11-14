@@ -79,7 +79,7 @@ declare function local:comment($comment) as node() {
 };
 
 declare function local:error() as node() {
-  <error>ID not found</error>
+  <error>{$userID}</error>
 };
 
 if (some $user in doc("Users.xml")//row satisfies ($user/@Id = $userID))
