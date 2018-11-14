@@ -6,7 +6,7 @@ declare function local:ReturnUser($user) as node()
   <user>
   { $user/@Id }
   <name> {data($user/@DisplayName) }  </name>
-  <description> { replace(data($user/@AboutMe), '(&lt;p&gt;)|(&lt;/p&gt;)' , "") } </description>
+  <description> { data($user/@AboutMe) } </description>
   <creation>{ data($user/@CreationDate) }</creation>
   <location>{ data($user/@Location) }</location>
   <upvotes>{ data($user/@UpVotes) }</upvotes>
@@ -60,7 +60,7 @@ declare function local:badge($badge) as node() {
 
 declare function local:post($post) as node() {
   <post>
-    <text> {   replace(data($post/@Body), '(&lt;p&gt;)|(&lt;/p&gt;)' , "") } </text>
+    <text> { data($post/@Body) } </text>
     <created>{data($post/@CreationDate) } </created>
     <view_count>{data($post/@ViewCount) } </view_count>
     <comment_count>{data($post/@CommentCount) } </comment_count>
