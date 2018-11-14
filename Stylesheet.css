@@ -1,0 +1,135 @@
+body {
+    margin: 0;
+    font-size: 28px;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: white;
+}
+
+#navbar {
+    overflow: hidden;
+    background-color: #f5f5f5;
+    border-bottom: 1px solid #cccccc;
+}
+
+#navbar div {
+    height: 5px;
+    background-color: orange;
+}
+
+#navbar img {
+    width: auto;
+    height: 40px;
+    float: left;
+    padding: 8px 16px;
+}
+
+.person {
+    background-color: aliceblue;
+    border-bottom: 2px solid #4f99e3;
+    box-shadow: 0px 5px 5px #aaaaaa;
+}
+
+.person h1 {
+    text-align: center;
+    margin: 0px;
+    padding-top: 5px;
+}
+
+.person h3 {
+    text-align: center;
+    margin: 0px;
+    color: #a3a3a3;
+}
+
+.person table {
+    padding: 16px;
+    width: 50%;
+    text-align: center;
+    font-size: 20px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.badges {
+    padding: 26px 26px 2px 26px;
+    border: 1px solid #cccccc;
+    height: auto;
+}
+
+.badges h4 {
+    text-align: center;
+    margin: 0;
+    margin-bottom: 8px;
+}
+
+.badge-list {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0px;
+    padding-left: 5%;
+}
+
+.badge-list li {
+    list-style-type: none;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    border: 3px outset #4f99e3;
+    padding: 5px;
+    background-color: aliceblue;
+    width: 20pc;
+    height: 50px;
+}
+
+.badge-list p {
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 0;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.badge-list img {
+    float: left;
+    width: auto;
+    height: 45px;
+    margin: 0;
+}
+
+.text_table {
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-bottom: 20px;
+    font-size: 15px;
+    border-bottom: 2px solid #cccccc;
+}
+
+.text_table h4 {
+    font-size: 28px;
+    margin: 15px;
+}
+
+.text_table td,
+.post th {
+    max-width: 800px;
+    min-width: 150px;
+    text-align: center;
+}
+
+.text_table td {
+    padding: 3px;
+    border: 1px solid #ddd;
+}
+
+.text_table th {
+    background-color: aliceblue;
+    border: 2px solid #4f99e3;
+    padding: 10px;
+    box-shadow: 3px 4px 10px #aaaaaa;
+}
+
+.text_table table {
+    word-wrap: break-word;
+    width: 100%;
+}
