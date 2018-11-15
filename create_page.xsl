@@ -2,7 +2,7 @@
 
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
-    <xsl:template match="/error">
+    <xsl:template match="/result/error">
         <html>
 
         <head>
@@ -27,7 +27,7 @@
         </html>
     </xsl:template>
 
-    <xsl:template match="/user">
+    <xsl:template match="/result/user">
         <html>
 
         <head>
