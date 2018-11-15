@@ -125,16 +125,16 @@
                             <xsl:value-of select="created" />
                         </td>
                         <td>
-                            <xsl:value-of select="view_count" />
+                            <xsl:value-of select="view_count[not(text()='0')]" />
                         </td>
                         <td>
-                            <xsl:value-of select="comment_count" />
+                            <xsl:value-of select="comment_count[not(text()='0')]" />
                         </td>
                         <td>
-                            <xsl:value-of select="answer_count" />
+                            <xsl:value-of select="answer_count[not(text()='0')]" />
                         </td>
                         <td>
-                            <xsl:value-of select="favourite_count" />
+                            <xsl:value-of select="favourite_count[not(text()='0')]" />
                         </td>
                         <td>
                             <xsl:value-of select="score" />
