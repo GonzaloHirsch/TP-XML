@@ -16,8 +16,8 @@ echo "Input number of comments:"
 
 read NComments
 
-while [ $NComments -lt 0 ]; do
-	echo "Please input a valid number of comments (a number greater than or equal to 0):"
+while ! [[ "$NComments" =~ ^[0-9]+$ ]] ; do
+	echo "Please input a valid number of comments (an integer greater than or equal to 0):"
 
 	read NComments
 done
