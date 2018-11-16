@@ -16,6 +16,7 @@ echo "Input number of comments:"
 
 read NComments
 
+#Use regexp to make sure its an integer 
 while ! [[ "$NComments" =~ ^[0-9]+$ ]] ; do
 	echo "Please input a valid number of comments (an integer greater than or equal to 0):"
 
