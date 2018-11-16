@@ -27,6 +27,5 @@ echo "Running Query..."
 java net.sf.saxon.Query userID=$userID n=$NComments $QUERY -o:intermediate.xml
 echo "Running Transformation..."
 java net.sf.saxon.Transform -s:intermediate.xml -xsl:$XSLT -o:output.html
-echo "Running HTML file..."
-open output.html
+echo "HTML file successfuly created!"
 
